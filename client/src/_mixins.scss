@@ -1,0 +1,137 @@
+@use "./variables" as vars;
+@import url("https://fonts.googleapis.com/css2?family=Sofia+Sans&display=swap");
+
+//Fonts
+@mixin sofia-sans($fw: 400, $fz: 1.6rem, $lh: 1.3) {
+  font-family: "Sofia Sans", sans-serif;
+  font-style: normal;
+  font-weight: $fw;
+  font-size: $fz;
+  line-height: $lh;
+  letter-spacing: 0.04em;
+}
+
+// Paragraphs
+@mixin p($fw: 400, $color: vars.$black, $fz: 1.6rem, $koef: 1) {
+  p {
+    letter-spacing: 0.04em;
+    font-family: "Sofia Sans";
+    font-size: $fz * $koef;
+    font-weight: $fw;
+    line-height: 1.5;
+    color: $color;
+    @include lg {
+      font-size: 1.4rem * $koef;
+    }
+    @include sm {
+      text-align: center;
+    }
+  }
+}
+
+//Section headings
+@mixin h1($color: vars.$indigo, $koef: 1) {
+  text-transform: uppercase;
+  h1 {
+    color: $color;
+    @include sofia-sans($fw: 800, $fz: 5.4rem * $koef, $lh: 1.2);
+    @include lg {
+      font-size: 4rem * $koef;
+    }
+    @include md {
+      font-size: 3rem * $koef;
+    }
+    @include sm {
+      font-size: 2rem * $koef;
+    }
+  }
+}
+
+@mixin h2($color: vars.$indigo, $koef: 1) {
+  h2 {
+    color: $color;
+    text-transform: uppercase;
+    @include sofia-sans($fw: 800, $fz: 3.6rem * $koef, $lh: 1.2);
+    @include lg {
+      font-size: 2.5rem * $koef;
+    }
+    @include md {
+      font-size: 2rem * $koef;
+    }
+    @include sm {
+      text-align: center;
+    }
+  }
+}
+
+@mixin h3($color: vars.$indigo, $koef: 1, $fz: 2.4rem) {
+  text-transform: uppercase;
+  h3 {
+    color: $color;
+    @include sofia-sans($fw: 800, $fz: $fz * $koef, $lh: 1.2);
+    @include lg {
+      font-size: 2rem * $koef;
+    }
+    @include md {
+      font-size: 1.6rem * $koef;
+    }
+    @include sm {
+      text-align: center;
+    }
+  }
+}
+
+// Image Container
+@mixin imgCont($flex: 1, $rad: 0) {
+  .imgContainer {
+    display: flex;
+    flex: $flex;
+    border-radius: $rad;
+    img {
+      max-width: 100%;
+      object-fit: cover;
+      border-radius: $rad;
+    }
+  }
+}
+
+//Smooth color change
+@mixin smooth {
+  transition: all 0.25s ease-in;
+}
+// List
+// @mixin ol-li {
+//   ol {
+//     color: vars.$dark_grey;
+//     li::marker {
+//       font-weight: bold;
+//     }
+//   }
+// }
+
+//Breakpoints
+@mixin xl {
+  @media (max-width: #{vars.$screen-xl}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (max-width: #{vars.$screen-lg}) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: #{vars.$screen-md}) {
+    @content;
+  }
+}
+@mixin sm {
+  @media (max-width: #{vars.$screen-sm}) {
+    @content;
+  }
+}
+@mixin xs {
+  @media (max-width: #{vars.$screen-xs}) {
+    @content;
+  }
+}

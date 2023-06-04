@@ -1,0 +1,239 @@
+@use "../../variables" as vars;
+@use "../../mixins" as mx;
+
+.wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  background-color: vars.$bg_white;
+  min-height: 100vh;
+  .mapWrapper {
+    display: flex;
+    flex: 2;
+    width: 100%;
+    min-height: 90vh;
+  }
+  .annosWrapper {
+    position: relative;
+    display: flex;
+    flex: 3;
+    flex-direction: column;
+    padding: 0 1em;
+    overflow-y: auto;
+    @include mx.h3($color: vars.$indigo);
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+    .searchOptions {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      .options {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        .filters {
+          display: flex;
+          flex-direction: row;
+          gap: 0.5em;
+
+          position: relative;
+          button {
+            &:hover {
+              cursor: pointer;
+            }
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.2em;
+            border-radius: 1.6rem;
+            padding: 0.5em;
+            transition: all 0.25s ease-in;
+            text-transform: uppercase;
+            @include mx.sofia-sans;
+            @include mx.lg {
+              font-size: 1.6rem;
+            }
+            @include mx.md {
+              font-size: 1.4rem;
+              padding: 0.7em;
+            }
+            @include mx.sm {
+              font-size: 1.2rem;
+            }
+          }
+        }
+        .sort {
+          display: flex;
+          flex-direction: row-reverse;
+          gap: 1em;
+          @include mx.p;
+          span {
+            font-weight: 800;
+          }
+          text-transform: uppercase;
+          p {
+            margin: 0.5em;
+            margin-right: 0;
+          }
+          .selectWrapper {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            select {
+              border: none;
+              outline: none;
+              text-align: end;
+              background-color: vars.$bg_white;
+              @include mx.sofia-sans;
+              text-transform: uppercase;
+              option {
+                min-height: auto;
+                height: 2em;
+              }
+              &:hover {
+                cursor: pointer;
+              }
+            }
+            .imgContainer {
+              height: 24px;
+              width: 24px;
+              img {
+                min-width: 100%;
+                object-fit: contain;
+              }
+            }
+          }
+        }
+        @include mx.md {
+          flex-direction: column;
+          gap: 1em;
+          .sort {
+            justify-content: space-between;
+          }
+        }
+      }
+    }
+    .listWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      margin-top: 1em;
+      .annosContainer {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2em;
+      }
+      .pagination {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 3em;
+        list-style: none;
+        li:not(:first-child, :last-child) {
+          @include mx.sofia-sans($fz: 2rem, $fw: 600);
+          color: vars.$indigo;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .activePage {
+          text-decoration: underline;
+          text-underline-offset: 0.3em;
+        }
+        .imgContainer {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          width: 4rem;
+          height: 4rem;
+          padding: 1em;
+          background-color: vars.$indigo;
+          img {
+            max-width: 100%;
+            max-height: 100%;
+          }
+          &:hover {
+            cursor: pointer;
+          }
+        }
+        .disabled {
+          background-color: vars.$light_grey;
+          &:hover {
+            cursor: auto;
+          }
+        }
+      }
+    }
+  }
+  @include mx.sm {
+    flex-direction: column;
+    .mapWrapper {
+      flex: unset;
+    }
+    .annosWrapper {
+      flex: unset;
+    }
+  }
+}
+
+.zeroAnnos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1em;
+  flex-grow: 1;
+  @include mx.p($color: vars.$grey);
+  .imgContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    img {
+      max-width: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+.toggleButton {
+  position: absolute;
+  bottom: 5em;
+  left: 50%;
+  transform: translateX(-50%);
+
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  border-radius: 1.6rem;
+  padding: 0.5em;
+  transition: all 0.25s ease-in;
+  text-transform: uppercase;
+  @include mx.sofia-sans;
+  @include mx.lg {
+    font-size: 1.6rem;
+  }
+  @include mx.md {
+    font-size: 1.4rem;
+    padding: 0.7em;
+  }
+  @include mx.sm {
+    font-size: 1.2rem;
+  }
+  border: 2px solid vars.$indigo;
+  background-color: vars.$indigo;
+  color: #ffffff;
+  &:hover {
+    color: vars.$indigo;
+    background-color: #ffffff;
+    cursor: pointer;
+  }
+}

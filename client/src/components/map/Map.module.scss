@@ -1,0 +1,12 @@
+@use "../../variables" as vars;
+@use "../../mixins" as mx;
+
+.mapContainer {
+  height: 100%;
+  width: 100%;
+}
+
+// .marker {
+//   width: 100px;
+//   height: 100px;
+// }

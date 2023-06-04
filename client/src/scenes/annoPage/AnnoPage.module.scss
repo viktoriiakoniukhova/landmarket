@@ -1,0 +1,324 @@
+@use "../../variables" as vars;
+@use "../../mixins" as mx;
+
+.wrapper {
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  background-color: vars.$bg_white;
+  min-height: 100vh;
+  .mapWrapper {
+    display: flex;
+    flex: 2;
+  }
+  .annoWrapper {
+    position: relative;
+
+    display: flex;
+    flex: 3;
+    flex-direction: column;
+    padding: 2em 1em;
+    gap: 3em;
+    overflow-y: auto;
+    &::-webkit-scrollbar {
+      width: 0;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      gap: 2em;
+      width: 100%;
+      .left {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        gap: 1em;
+        width: calc(50% - 1em);
+        @include mx.h3($fz: 2.4rem, $color: vars.$black);
+        h3 {
+          margin: 0.2em 0;
+          word-break: break-all;
+          white-space: normal;
+        }
+        .secondaryInfo {
+          display: flex;
+          flex-direction: column;
+          @include mx.p;
+          p {
+            margin: 0.5em 0;
+          }
+        }
+      }
+      .right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        flex: 1;
+        gap: 1em;
+        width: calc(50% - 1em);
+        .mainInfo {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          gap: 4em;
+          @include mx.h3($fz: 2.4rem, $color: vars.$black);
+          h3 {
+            margin: 0.2em 0;
+          }
+        }
+        .stats {
+          display: flex;
+          flex-direction: column;
+          align-items: flex-end;
+          @include mx.p($color: vars.$grey39);
+          p {
+            margin: 0.2em;
+          }
+          .subStats {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 2em;
+            .stat {
+              display: flex;
+              flex-direction: row;
+              gap: 0.5em;
+              align-items: center;
+            }
+          }
+        }
+        .buttons {
+          display: flex;
+          justify-content: space-between;
+          gap: 2em;
+          margin-top: 2em;
+          .disabled {
+            border: 2px solid vars.$grey;
+            background-color: vars.$grey;
+            color: #ffffff;
+            &:hover {
+              background-color: vars.$grey;
+              border: 2px solid vars.$grey;
+              cursor: auto;
+            }
+          }
+          button {
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.2em;
+            border-radius: 1.6rem;
+            padding: 0.5em;
+            transition: all 0.25s ease-in;
+            text-transform: uppercase;
+            @include mx.sofia-sans;
+            @include mx.lg {
+              font-size: 1.6rem;
+            }
+            @include mx.md {
+              font-size: 1.4rem;
+              padding: 0.7em;
+            }
+            @include mx.sm {
+              font-size: 1.2rem;
+            }
+
+            border: 2px solid vars.$indigo;
+            background-color: vars.$indigo;
+            color: #ffffff;
+            &:hover {
+              background-color: vars.$light_indigo;
+              border: 2px solid vars.$light_indigo;
+              cursor: pointer;
+            }
+          }
+        }
+      }
+    }
+    .imagesContainer {
+      display: flex;
+      border-radius: 2em;
+      img {
+        max-width: 100%;
+        border-radius: 2em;
+
+        object-fit: contain;
+      }
+    }
+    // .main > .left > p,
+    // .main > .right > .ownerCard {
+    //   min-height: 10em;
+    // }
+    .main {
+      display: flex;
+      justify-content: space-between;
+      gap: 2em;
+      width: 100%;
+      .left {
+        width: calc(50% - 1em);
+        display: flex;
+        flex-direction: column;
+        // flex: 1;
+        gap: 2em;
+        @include mx.p;
+        & > p {
+          word-break: break-all;
+          white-space: normal;
+        }
+        .details {
+          display: flex;
+          flex: 2;
+          flex-direction: column;
+
+          header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.5em;
+            @include mx.h3($color: vars.$black);
+            text-transform: capitalize;
+            .divider {
+              display: flex;
+              flex-grow: 1;
+              border: 2px solid vars.$light_grey;
+              border-radius: 2rem;
+            }
+          }
+          .content {
+            display: flex;
+            flex-direction: column;
+            @include mx.p($fw: 700);
+            p {
+              display: flex;
+              justify-content: space-between;
+              gap: 2em;
+              text-transform: capitalize;
+              word-break: break-all;
+              white-space: normal;
+              span {
+                display: flex;
+                align-items: center;
+                text-align: right;
+                @include mx.sofia-sans($fw: 400, $fz: 1.6rem);
+                text-transform: none;
+              }
+            }
+          }
+        }
+      }
+      .right {
+        width: calc(50% - 1em);
+        display: flex;
+        flex-direction: column;
+        // flex: 1;
+        gap: 2em;
+        .ownerCard {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5em;
+          background-color: vars.$white;
+          border-radius: 2rem;
+          padding: 0.5em 1em;
+          @include mx.h3($color: vars.$black);
+          h3 {
+            font-weight: 400;
+            margin: 0.5em 0;
+          }
+          @include mx.p;
+          p {
+            margin: 0.5em;
+          }
+          text-transform: uppercase;
+          .phone {
+            display: flex;
+            align-items: center;
+            gap: 1em;
+          }
+        }
+        .formWrapper {
+          display: flex;
+          flex-direction: column;
+          header {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            gap: 0.5em;
+            @include mx.h2($color: vars.$black, $koef: 0.8);
+            text-transform: capitalize;
+          }
+          form {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+            label {
+              position: relative;
+
+              .icon {
+                position: absolute;
+                left: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+                /* Add your icon styles here */
+              }
+
+              input,
+              textarea {
+                display: flex;
+                padding-left: 4rem; /* Adjust the value based on your icon size */
+                /* Add other input field styles here */
+                border: none;
+                outline: none;
+                border-radius: 2rem;
+                background-color: #fff;
+                padding: 1em 10em 1em 4rem;
+                width: 100%;
+                &::placeholder {
+                  @include mx.sofia-sans;
+                }
+              }
+              textarea {
+                min-height: 10em;
+              }
+              span {
+                z-index: 10;
+                padding: 1em;
+                color: red;
+                position: absolute;
+                right: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+              }
+            }
+            button {
+              align-self: flex-start;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.disabled {
+  border: 2px solid vars.$grey;
+  background-color: vars.$grey;
+  color: #ffffff;
+  &:hover {
+    background-color: vars.$grey;
+    border: 2px solid vars.$grey;
+    cursor: auto;
+  }
+}
+
+.submitBtn {
+  border: 2px solid vars.$indigo;
+  background-color: vars.$indigo;
+  color: #ffffff;
+  &:hover {
+    color: vars.$indigo;
+    background-color: #ffffff;
+    cursor: pointer;
+  }
+}

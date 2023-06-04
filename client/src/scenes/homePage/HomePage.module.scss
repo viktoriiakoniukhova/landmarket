@@ -1,0 +1,200 @@
+@use "../../variables" as vars;
+@use "../../mixins" as mx;
+
+.homeWrapper {
+  padding: 1em 2em;
+  background-color: vars.$bg-white;
+  header {
+    display: flex;
+    gap: 3.5em;
+    .content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: center;
+      @include mx.h1;
+      text-transform: uppercase;
+      @include mx.md {
+        gap: 5em;
+        padding: 2em 0;
+        @include mx.h1($koef: 0.9);
+      }
+      @include mx.sm {
+        text-align: center;
+      }
+    }
+    .gallery {
+      display: flex;
+      flex: 1;
+      img {
+        max-width: 100%;
+        object-fit: cover;
+      }
+      @include mx.sm {
+        display: none;
+      }
+    }
+  }
+  .regionsWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    padding: 2em 0;
+    @include mx.h2;
+    .regionsContent {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2em;
+      .regionCards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5em;
+        justify-content: space-around;
+        padding: 2em 0;
+      }
+      .regionList {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        @include mx.p;
+        p {
+          margin: 0.5em 1.5em;
+          @include mx.smooth;
+          &:hover {
+            scale: 1.05;
+            cursor: pointer;
+            color: vars.$indigo;
+          }
+        }
+      }
+    }
+  }
+  .aboutWrapper {
+    display: flex;
+    padding: 4em 2em;
+    margin: 2em 0;
+    background-color: vars.$light_purple;
+    border-radius: 2rem;
+    gap: 4em;
+    .main {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: space-between;
+      @include mx.h2;
+      @include mx.p($color: vars.$white);
+      p {
+        text-transform: uppercase;
+      }
+      .stats {
+        display: flex;
+        justify-content: space-between;
+        .stat {
+          display: flex;
+          flex-direction: column;
+          h2 {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+    .badges {
+      display: flex;
+      flex: 1;
+      flex-wrap: wrap;
+      gap: 2em;
+    }
+    @include mx.sm {
+      flex-direction: column;
+      gap: 2em;
+      .badges {
+        @include mx.xs {
+          flex-direction: column;
+        }
+        .badge {
+          .iconWrapper {
+            align-self: center;
+          }
+        }
+      }
+    }
+  }
+  .hotDealsWrapper {
+    display: flex;
+    flex-direction: column;
+    margin: 2em 0;
+    gap: 2em;
+    @include mx.h2;
+    .annosWrapper {
+      display: flex;
+      gap: 2em;
+      overflow-x: auto;
+      padding-bottom: 1em;
+
+      position: relative;
+      min-height: 30em;
+    }
+  }
+}
+
+.regionCard {
+  display: flex;
+  flex-direction: column;
+  @include mx.imgCont;
+  .imgContainer {
+    width: 250px;
+    height: 200px;
+  }
+  @include mx.p;
+  text-transform: uppercase;
+  @include mx.smooth;
+  border-radius: 2rem;
+  padding: 0.5em;
+  &:hover {
+    scale: 1.05;
+    cursor: pointer;
+    p {
+      color: vars.$indigo;
+    }
+  }
+  p {
+    margin-bottom: 0.2em;
+  }
+}
+
+.badge {
+  display: flex;
+  flex-direction: column;
+  flex-basis: calc(50% - 2em);
+  @include mx.p($color: vars.$white);
+  @include mx.h3;
+  p {
+    text-transform: none;
+  }
+  .iconWrapper {
+    display: flex;
+    align-self: start;
+    padding: 1em;
+    background-color: vars.$white;
+    border-radius: 50%;
+    img {
+      width: 40px;
+      height: 40px;
+    }
+  }
+}
+
+.hide {
+  display: none;
+}
+
+.smallRegionsWrapper {
+  display: flex;
+  gap: 2em;
+  overflow-x: auto;
+  padding-bottom: 1em;
+
+  position: relative;
+}

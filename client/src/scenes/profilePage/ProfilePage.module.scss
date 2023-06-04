@@ -1,0 +1,183 @@
+@use "../../variables" as vars;
+@use "../../mixins" as mx;
+
+.wrapper {
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  justify-content: center;
+  padding: 4em 2em;
+  gap: 1em;
+  background-color: vars.$bg_white;
+  justify-content: space-between;
+  height: 50em;
+  @include mx.md {
+    flex-direction: column-reverse;
+    height: unset;
+  }
+  @include mx.xs {
+    padding: 2em;
+  }
+  .userCard {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5em;
+    @include mx.h3($color: "#000");
+    background-color: #fff;
+    border-radius: 2rem;
+    padding: 2em;
+    min-width: 30em;
+    height: 100%;
+    @include mx.md {
+      width: 100%;
+    }
+    @include mx.xs {
+      min-width: unset;
+    }
+    .userCardContent {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 2em;
+      .row1 {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 5em;
+        .nameAndLogo {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5em;
+          .imgContainer {
+            display: flex;
+            @include mx.sm {
+              max-width: 5rem;
+              max-height: 5rem;
+            }
+            border-radius: 50%;
+            max-width: 12rem;
+            max-height: 12rem;
+            img {
+              max-width: 100%;
+              object-fit: contain;
+              border-radius: 50%;
+            }
+          }
+          .name {
+            display: flex;
+            flex-direction: column;
+            @include mx.p;
+            text-align: center;
+            p {
+              margin: 0;
+              font-weight: 600;
+              &:hover {
+                color: vars.$black;
+                cursor: unset;
+              }
+            }
+          }
+        }
+        .userStats {
+          display: flex;
+          flex-direction: column;
+          @include mx.p;
+          p {
+            margin: 0;
+            font-weight: 100;
+            span {
+              font-weight: 800;
+            }
+          }
+        }
+      }
+      .row2 {
+        display: flex;
+        flex-direction: column;
+        .line {
+          display: flex;
+          align-items: center;
+          gap: 0.5em;
+          @include mx.p;
+          p {
+            margin: 0.5em;
+            text-transform: none;
+          }
+        }
+      }
+    }
+    button {
+      align-self: center;
+    }
+  }
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    height: 100%;
+    flex: 1;
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.5em;
+      @include mx.h2($color: vars.$black, $koef: 0.8);
+      h2 {
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+      .divider {
+        display: flex;
+        flex-grow: 1;
+        border: 2px solid vars.$light_grey;
+        border-radius: 2rem;
+      }
+    }
+    @include mx.md {
+      width: 100%;
+    }
+    .userAnnos {
+      display: flex;
+      flex-direction: row;
+      gap: 1em;
+      height: 100%;
+      @include mx.lg {
+        flex-direction: column;
+      }
+      @include mx.md {
+        flex-direction: row;
+      }
+      @include mx.xs {
+        flex-direction: column;
+      }
+      .userAnnosCont {
+        display: flex;
+        flex: 1;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        text-transform: uppercase;
+        background-color: #fff;
+        border-radius: 2rem;
+        @include mx.p($fz: 2.4rem);
+        p {
+          font-weight: 500;
+        }
+        @include mx.md {
+          min-height: 30em;
+        }
+        @include mx.sm {
+          min-height: 20em;
+        }
+        @include mx.smooth;
+        &:hover {
+          cursor: pointer;
+          background-color: vars.$white_hover;
+        }
+      }
+    }
+  }
+}

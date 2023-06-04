@@ -1,0 +1,54 @@
+@use "../../variables" as vars;
+@use "../../mixins" as mx;
+
+.customDropdown {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &:hover {
+    cursor: pointer;
+  }
+  position: relative;
+  .header {
+    @include mx.p;
+    text-transform: uppercase;
+    p {
+      margin: 0.5em;
+    }
+  }
+  .optionsList {
+    position: absolute;
+    top: 3em;
+    right: 0;
+    z-index: 10;
+
+    background-color: vars.$bg_white;
+    border: 1px solid vars.$indigo;
+    border-radius: 2rem;
+    padding: 0.5em;
+
+    display: flex;
+    flex-direction: column;
+    min-width: max-content;
+    li {
+      list-style: none;
+      text-align: right;
+      @include mx.p;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-direction: row;
+      p {
+        margin: 0;
+      }
+      .imgContainer {
+        min-width: 25px;
+        min-height: 23px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}

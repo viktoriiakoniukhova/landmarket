@@ -1,0 +1,66 @@
+@use "../../variables" as vars;
+@use "../../mixins" as mx;
+
+button {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  border-radius: 1.6rem;
+  padding: 0.5em;
+  transition: all 0.25s ease-in;
+  text-transform: uppercase;
+  @include mx.sofia-sans;
+  @include mx.lg {
+    font-size: 1.6rem;
+  }
+  @include mx.md {
+    font-size: 1.4rem;
+    padding: 0.7em;
+  }
+  @include mx.sm {
+    font-size: 1.2rem;
+  }
+  &.lightPurple {
+    border-radius: 1rem;
+    border: 2px solid vars.$light_purple;
+    background-color: vars.$light_purple;
+    color: #ffffff;
+    &:hover {
+      color: vars.$light_purple;
+      background-color: #ffffff;
+      cursor: pointer;
+    }
+  }
+  &.purple {
+    border: 2px solid vars.$purple;
+    background-color: vars.$purple;
+    color: #ffffff;
+    &:hover {
+      color: vars.$purple;
+      background-color: #ffffff;
+      cursor: pointer;
+    }
+  }
+  &.indigo {
+    border: 2px solid vars.$indigo;
+    background-color: vars.$indigo;
+    color: #ffffff;
+    &:hover {
+      color: vars.$indigo;
+      background-color: #ffffff;
+      cursor: pointer;
+    }
+  }
+  &.bgWhite {
+    border-radius: unset;
+    background-color: vars.$bg_white;
+    color: vars.$black;
+    &:hover {
+      color: vars.$indigo;
+      background-color: vars.$bg_white;
+      cursor: pointer;
+    }
+  }
+}

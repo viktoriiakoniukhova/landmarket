@@ -1,0 +1,42 @@
+@use "../../variables" as vars;
+@use "../../mixins" as mx;
+
+:root {
+  --swiper-theme-color: #026670 !important;
+}
+
+.tSwiper {
+  width: 100%;
+  .tSwiperSlide {
+    margin-bottom: 1em;
+    text-align: center;
+    font-size: 18px;
+    background: vars.$bg_white;
+
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+// .testimonialCard {
+//   display: flex;
+//   flex-direction: column;
+//   justify-content: center;
+//   align-items: center;
+//   text-align: center;
+//   gap: 1em;
+//   padding: 1em;
+//   @include mx.imgCont;
+//   .userImgContainer {
+//     width: 5em;
+//     height: 5em;
+//     border-radius: 50%;
+//     img {
+//       border-radius: 50%;
+//     }
+//   }
+//   @include mx.p;
+//   @include mx.h2;
+// }

@@ -1,0 +1,173 @@
+@use "../../../variables" as vars;
+@use "../../../mixins" as mx;
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em;
+  background-color: vars.$bg_white;
+  gap: 2em;
+  .col {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-basis: calc(33.3% - 4em);
+  }
+  .first {
+    .imgContainer {
+      display: flex;
+      justify-content: center;
+      img {
+        max-width: 100%;
+        object-fit: cover;
+      }
+    }
+    @include mx.p($color: vars.$grey);
+    text-transform: uppercase;
+  }
+  .second {
+    @include mx.p($fw: 800);
+    text-transform: uppercase;
+    gap: 10em;
+    .newsletterWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      .inputWrapper {
+        display: flex;
+        background-color: vars.$white;
+        border: 1px solid vars.$indigo;
+        border-radius: 2rem;
+        padding: 0.5em 0.5em 0.5em 1em;
+        input {
+          display: flex;
+          flex: 2;
+          border-radius: 2rem;
+          background-color: vars.$white;
+          border: none;
+          outline: none;
+          @include mx.sofia-sans($fz: 2rem);
+          color: vars.$light_indigo;
+          &::placeholder {
+            @include mx.sofia-sans($fz: 1.5rem);
+            color: vars.$light_indigo;
+            text-transform: uppercase;
+          }
+          &:focus {
+            &::placeholder {
+              opacity: 0.5;
+            }
+          }
+          @include mx.xs {
+            max-width: 8em;
+          }
+        }
+        button {
+          display: flex;
+          border-radius: 2rem;
+          background-color: vars.$white;
+          transition: all 0.25s ease-in;
+          border: none;
+          &:hover {
+            color: vars.$white;
+            background-color: vars.$bg_white;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .navWrapper {
+      display: flex;
+      justify-content: space-between;
+      gap: 1em;
+      nav {
+        display: flex;
+        flex-direction: column;
+        gap: 1em;
+        a {
+          @include mx.sofia-sans($fw: 800);
+          @include mx.smooth;
+          &:hover {
+            color: vars.$light_indigo;
+          }
+        }
+      }
+    }
+    @include mx.lg {
+      gap: 2em;
+      .newsletterWrapper {
+        text-align: center;
+        p {
+          margin-left: 0.5em;
+        }
+      }
+    }
+  }
+  .third {
+    @include mx.p($fw: 800);
+    text-transform: uppercase;
+    gap: 10em;
+    .socialsWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      .socials {
+        display: flex;
+        flex-direction: row;
+        gap: 1em;
+        .imgContainer {
+          display: flex;
+          padding: 1em;
+          background-color: vars.$light_purple;
+          border-radius: 50%;
+          min-width: 5rem;
+          &:hover {
+            cursor: pointer;
+          }
+        }
+      }
+    }
+    .contactWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 1em;
+      .contact {
+        display: flex;
+        gap: 2em;
+        .imgContainer {
+          display: flex;
+          img {
+            max-width: 100%;
+            object-fit: cover;
+          }
+        }
+        a {
+          @include mx.smooth;
+          @include mx.sofia-sans($fw: 800);
+          &:hover {
+            color: vars.$light_indigo;
+          }
+        }
+      }
+    }
+    @include mx.lg {
+      gap: 2em;
+      .socialsWrapper {
+        text-align: center;
+        .socials {
+          justify-content: center;
+        }
+      }
+    }
+  }
+  @include mx.lg {
+    flex-direction: column;
+    .col {
+      flex-basis: unset;
+      padding: 0 10em;
+      @include mx.sm {
+        padding: 0 2em;
+      }
+    }
+  }
+}

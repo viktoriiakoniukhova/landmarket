@@ -1,0 +1,108 @@
+@use "../../variables" as vars;
+@use "../../mixins" as mx;
+
+.cardWrapper {
+  display: flex;
+  flex-direction: column;
+  min-width: 20em;
+  @include mx.sm {
+    min-width: 25em;
+  }
+  @include mx.xs {
+    min-width: 23em;
+  }
+  gap: 1em;
+  background-color: vars.$white;
+  border-radius: 1rem;
+  &.AnnosPage {
+    flex: 0 1 calc(50% - 1em);
+    @include mx.sm {
+      flex: unset;
+    }
+  }
+  .imgWrapper {
+    position: relative;
+    display: flex;
+    flex: 1;
+    border-radius: 1rem;
+    max-height: min-content;
+    & > img {
+      border-radius: 1rem;
+      object-fit: cover;
+      max-width: 100%;
+      width: 320px;
+      height: 204px;
+    }
+    .likeWrapper {
+      opacity: 0;
+      @include mx.smooth;
+      position: absolute;
+      top: 0.5em;
+      right: 0.5em;
+      img {
+        max-width: 100%;
+        object-fit: contain;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &:hover {
+    .likeWrapper {
+      opacity: 1;
+    }
+  }
+  .contentWrapper {
+    flex: 1;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 0.5em;
+    padding: 0 1.5em;
+    .mainInfo {
+      display: flex;
+      justify-content: space-between;
+      @include mx.h3($fz: 2rem, $color: vars.$black);
+      h3 {
+        margin: 0.2em 0;
+      }
+    }
+    .secondaryInfo {
+      p {
+        margin: 0.5em 0;
+        &:last-child {
+          flex-grow: 1;
+        }
+      }
+      min-height: 10em;
+      display: flex;
+      flex-direction: column;
+      @include mx.p;
+      @include mx.sm {
+        min-height: 5em;
+        p {
+          text-align: left;
+        }
+      }
+    }
+    .unfoldButton {
+      display: flex;
+      justify-content: flex-end;
+      .btn {
+        display: flex;
+        align-items: center;
+        gap: 0.5em;
+        background-color: vars.$white;
+        display: flex;
+        @include mx.p($fz: 20);
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+          text-underline-offset: 5px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+@use "../../variables" as vars;
+@use "../../mixins" as mx;
+
+.searchWrapper {
+  display: flex;
+  background-color: vars.$light_purple;
+  border-radius: 5rem;
+  padding: 1.5em 1.5em 1.5em 2em;
+  &.AnnosPage {
+    padding: 0.5em 0.5em 0.5em 1em;
+  }
+  @include mx.md {
+    padding: 0.5em 0.5em 0.5em 1em;
+  }
+  input {
+    display: flex;
+    flex: 2;
+    border-radius: 5rem;
+    background-color: vars.$light_purple;
+    border: none;
+    outline: none;
+    @include mx.sofia-sans($fz: 2rem);
+    @include mx.md {
+      @include mx.sofia-sans($fz: 1.6rem);
+    }
+    color: vars.$white;
+    &::placeholder {
+      @include mx.sofia-sans($fz: 2rem);
+      @include mx.md {
+        @include mx.sofia-sans($fz: 1.6rem);
+      }
+      color: vars.$white;
+    }
+    &:focus {
+      &::placeholder {
+        opacity: 0.5;
+      }
+    }
+  }
+  button {
+    display: flex;
+    border-radius: 5rem;
+    background-color: vars.$indigo;
+    transition: all 0.25s ease-in;
+    &:hover {
+      color: vars.$indigo;
+      background-color: vars.$light_indigo;
+      cursor: pointer;
+    }
+  }
+}

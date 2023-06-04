@@ -1,0 +1,52 @@
+@use "../../variables" as vars;
+@use "../../mixins" as mx;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em;
+  background-color: vars.$bg_white;
+  .infoSectionWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      gap: 0.5em;
+      width: 100%;
+      @include mx.h2($color: vars.$indigo, $koef: 0.8);
+      h2 {
+        font-weight: 700;
+        text-transform: uppercase;
+        margin: 0.5em;
+      }
+      .divider {
+        display: flex;
+        flex-grow: 1;
+        border: 1px solid vars.$light_grey;
+        border-radius: 2rem;
+      }
+    }
+    .questionWrapper {
+      display: flex;
+      flex-direction: column;
+      margin: 1em;
+      @include mx.h3;
+      border-radius: 1rem;
+      background-color: #fff;
+      h3 {
+        color: #000;
+        font-weight: 500;
+      }
+      .descWrapper {
+        @include mx.sofia-sans;
+        @include mx.sm {
+          font-size: 1.4rem;
+        }
+      }
+    }
+  }
+}

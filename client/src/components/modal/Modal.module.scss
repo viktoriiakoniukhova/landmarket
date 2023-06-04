@@ -1,0 +1,209 @@
+@use "../../variables" as vars;
+@use "../../mixins" as mx;
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1040;
+  width: 100vw;
+  height: 100vh;
+  background-color: #000;
+  opacity: 0.5;
+}
+.modalWrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1050;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+  overflow-y: auto;
+  outline: 0;
+  .modal {
+    z-index: 100;
+    background: white;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%;
+    left: 50%;
+    margin: auto;
+    border-radius: 2rem;
+    border: 1px solid vars.$indigo;
+
+    max-width: 35em;
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    .modalHeader {
+      display: flex;
+      justify-content: flex-end;
+      button {
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.2em;
+        border-radius: 2rem;
+        padding: 0.5em;
+        transition: all 0.25s ease-in;
+        text-transform: uppercase;
+        @include mx.sofia-sans;
+        @include mx.lg {
+          font-size: 1.6rem;
+        }
+        @include mx.md {
+          font-size: 1.4rem;
+          padding: 0.7em;
+        }
+        @include mx.sm {
+          font-size: 1.2rem;
+        }
+        border: 2px solid vars.$indigo;
+        background-color: vars.$indigo;
+        color: #ffffff;
+        &:hover {
+          border: 2px solid vars.$light_indigo;
+          background-color: vars.$light_indigo;
+          cursor: pointer;
+        }
+      }
+    }
+    .modalContent {
+      display: flex;
+      .loginWrapper,
+      .registerWrapper {
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+      }
+      .registeredWrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        @include mx.sofia-sans;
+        background-color: #fff;
+        padding: 0 1em;
+        gap: 0.5em;
+        span {
+          color: vars.$indigo;
+          text-transform: uppercase;
+          @include mx.smooth;
+          &:hover {
+            cursor: pointer;
+            color: vars.$light_indigo;
+          }
+        }
+      }
+      .divider {
+        display: flex;
+        flex-grow: 1;
+        border: 1px solid vars.$light_grey;
+        border-radius: 2rem;
+      }
+      footer {
+        display: flex;
+        justify-content: flex-start;
+        @include mx.sofia-sans;
+        background-color: #fff;
+        padding: 0 1em;
+        gap: 0.5em;
+        span {
+          color: vars.$indigo;
+          text-transform: uppercase;
+          @include mx.smooth;
+          &:hover {
+            cursor: pointer;
+            color: vars.$light_indigo;
+          }
+        }
+      }
+    }
+  }
+}
+
+@include mx.md {
+  button {
+    padding: 1em 2em;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  label {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    @include mx.p;
+    p {
+      margin: 0.5em 0;
+    }
+    input {
+      display: flex;
+      border: none;
+      outline: none;
+      border-radius: 1rem;
+      border: 1px solid vars.$grey;
+      background-color: #fff;
+      padding: 1em;
+      width: 100%;
+      &::placeholder {
+        @include mx.sofia-sans;
+      }
+    }
+    span {
+      z-index: 10;
+      color: red;
+      position: absolute;
+      right: 0;
+      top: 1em;
+    }
+  }
+  button {
+    margin-top: 1em;
+  }
+  .nameCont {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+  }
+  @include mx.p;
+  & > p {
+    margin: 1em 0.5em;
+    color: red;
+  }
+}
+
+button {
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.2em;
+  border-radius: 1.6rem;
+  padding: 0.5em;
+  transition: all 0.25s ease-in;
+  text-transform: uppercase;
+  @include mx.sofia-sans;
+  @include mx.lg {
+    font-size: 1.6rem;
+  }
+  @include mx.md {
+    font-size: 1.4rem;
+    padding: 0.7em;
+  }
+  @include mx.sm {
+    font-size: 1.2rem;
+  }
+  border: 2px solid vars.$indigo;
+  background-color: vars.$indigo;
+  color: #ffffff;
+  &:hover {
+    color: vars.$indigo;
+    background-color: #ffffff;
+    cursor: pointer;
+  }
+}

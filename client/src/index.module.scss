@@ -1,0 +1,44 @@
+@use "./mixins" as mx;
+@use "./variables" as vars;
+@import url("https://fonts.googleapis.com/css2?family=Sofia+Sans&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  font-size: 1.6rem;
+}
+.app {
+  margin: auto;
+}
+a {
+  color: inherit;
+  text-decoration: inherit;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+  height: 4px;
+}
+::-webkit-scrollbar-track {
+  background-color: vars.$bg_white; /* Color of the track */
+}
+::-webkit-scrollbar-thumb {
+  border-radius: 3rem;
+  background-color: vars.$indigo; /* Color of the thumb */
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: vars.$light_indigo; /* Color of the thumb on hover */
+}
+::-webkit-scrollbar-button {
+  display: none; /* Hide the scrollbar buttons/arrows */
+}

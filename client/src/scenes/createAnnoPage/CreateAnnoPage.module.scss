@@ -1,0 +1,132 @@
+@use "../../variables" as vars;
+@use "../../mixins" as mx;
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 2em;
+  background-color: vars.$bg_white;
+  min-height: 90vh;
+  header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0.5em;
+    @include mx.h2($color: vars.$black, $koef: 0.8);
+    h2 {
+      font-weight: 500;
+      text-transform: capitalize;
+    }
+    .divider {
+      display: flex;
+      flex-grow: 1;
+      border: 2px solid vars.$light_grey;
+      border-radius: 2rem;
+    }
+  }
+  .content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 2em;
+    gap: 1em;
+    flex-grow: 1;
+    .step {
+      display: flex;
+      flex-grow: 1;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @include mx.p($fz: 2rem);
+      text-transform: uppercase;
+      & > p {
+        text-align: center;
+      }
+      .cadContainer {
+        display: flex;
+        flex-direction: column;
+        min-width: 50%;
+        label {
+          display: flex;
+          flex-direction: column;
+          p {
+            color: vars.$grey93;
+            @include mx.sofia-sans();
+            text-transform: capitalize;
+          }
+        }
+      }
+      .colWrapper {
+        display: flex;
+        gap: 4em;
+        .col {
+          display: flex;
+          flex-direction: column;
+          flex: 1;
+          p {
+            text-transform: capitalize;
+            color: vars.$grey93;
+            @include mx.sofia-sans($lh: 1);
+            &:last-child {
+              color: vars.$grey39;
+            }
+          }
+        }
+      }
+    }
+    button {
+      align-self: center;
+      margin-bottom: 1em;
+    }
+  }
+}
+
+label {
+  position: relative;
+  p {
+    margin: 0.5em 0;
+  }
+  input,
+  textarea {
+    display: flex;
+    border: none;
+    outline: none;
+    border-radius: 1rem;
+    border: 1px solid vars.$grey93;
+    background-color: #fff;
+    padding: 1em;
+    width: 100%;
+    color: #000;
+    @include mx.sofia-sans;
+    &::placeholder {
+      color: vars.$grey93;
+      @include mx.sofia-sans($lh: 1);
+    }
+  }
+  span {
+    z-index: 10;
+    color: red;
+    position: absolute;
+    right: 0;
+    top: 1em;
+  }
+}
+
+textarea {
+  min-height: 10em;
+}
+
+.annoCreated {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  text-align: center;
+  @include mx.sofia-sans;
+  a {
+    color: vars.$purple;
+    &:hover {
+      color: vars.$light_purple;
+    }
+  }
+}
