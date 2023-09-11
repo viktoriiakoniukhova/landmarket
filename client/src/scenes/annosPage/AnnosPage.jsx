@@ -332,8 +332,7 @@ export default function AnnosPage() {
         </h3>
         {!annosAll.length ? (
           <Loader />
-        ) : !annosAll.length ||
-          (fetchedCategory.title.length && fetchedCategory.isEmpty) ? (
+        ) : fetchedCategory.title.length && fetchedCategory.isEmpty ? (
           <div className={styles.zeroAnnos}>
             <div className={styles.imgContainer}>
               <img src={warning} alt="warning" />

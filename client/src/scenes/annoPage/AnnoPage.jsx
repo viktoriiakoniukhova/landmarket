@@ -68,7 +68,7 @@ function Form({ annoId, isUserLoggedIn }) {
         case "email":
           return /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
         case "phone":
-          return /^\+380\d{3}\d{2}\d{2}\d{2}$/;
+          return /^\+380\d{2}\d{3}\d{2}\d{2}$/;
         default:
           return;
       }

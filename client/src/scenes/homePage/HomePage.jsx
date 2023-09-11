@@ -86,12 +86,13 @@ export default function HomePage() {
   const hotDeals = annos.filter((anno) => {
     const createdAt = new Date(anno.createdAt);
     const currentDate = new Date();
-    return getDateDiffInDays(createdAt, currentDate) <= 5;
+    return getDateDiffInDays(createdAt, currentDate) <= 1000;
   });
 
   useEffect(() => {
     if (annos.length) setIsLoaded(true);
   }, [annos]);
+
   const hotDealCards = hotDeals.map((hotDeal) => (
     <AnnoFold data={hotDeal} key={uuidv4()} />
   ));

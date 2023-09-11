@@ -58,7 +58,7 @@ function FormEdit({ userData, setUserData }) {
       };
 
       sendData(dataToPost);
-      if (imgFile.name.length) {
+      if (imgFile.name && imgFile.name.length) {
         uploadProfileImage(imgFile);
         setImgFile({});
       }
