@@ -1,6 +1,6 @@
 const express = require("express");
 const app = express();
-const dotenv = require("dotenv").config();
+const dotenv = require("./node_modules/dotenv").config();
 const PORT = process.env.PORT || 4000;
 const authRoute = require("./routes/authRoute");
 const annoRoute = require("./routes/annoRoute");
