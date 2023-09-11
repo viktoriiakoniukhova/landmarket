@@ -15,23 +15,26 @@
   background-color: vars.$white;
   border-radius: 1rem;
   &.AnnosPage {
+    min-width: 10em;
     flex: 0 1 calc(50% - 1em);
-    @include mx.sm {
+    @include mx.lg {
       flex: unset;
     }
   }
   .imgWrapper {
     position: relative;
     display: flex;
-    flex: 1;
+    // flex: 1;
     border-radius: 1rem;
     max-height: min-content;
     & > img {
       border-radius: 1rem;
       object-fit: cover;
-      max-width: 100%;
-      width: 320px;
-      height: 204px;
+      min-width: 100%;
+      // min-height: 100%;
+
+      // width: 320px;
+      // min-height: 250px;
     }
     .likeWrapper {
       opacity: 0;

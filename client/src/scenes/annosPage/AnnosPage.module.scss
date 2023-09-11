@@ -124,7 +124,8 @@
       .annosContainer {
         display: flex;
         flex-wrap: wrap;
-        gap: 2em;
+        justify-content: space-between;
+        gap: 1em;
       }
       .pagination {
         display: flex;
