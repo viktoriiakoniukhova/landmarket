@@ -16,7 +16,7 @@ const cookieParser = require("cookie-parser");
 app.use((req, res, next) => {
   res.setHeader(
     "Access-Control-Allow-Origin",
-    "https://lambent-heliotrope-0974b1.netlify.app/"
+    "https://lambent-heliotrope-0974b1.netlify.app"
   );
   res.setHeader("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE");
   res.setHeader(
